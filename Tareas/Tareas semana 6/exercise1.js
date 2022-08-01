@@ -1,3 +1,7 @@
+//ORDENACIÓN DE TRES NÚMEROS
+/*Construir un programa que pida por pantalla 3 números y luego
+diga cuál es el mayor, el del medio y el menor de los números
+ingresados*/
 let may, med, min;
 let num1 = parseInt(prompt("Ingrese el primer número "));
 let num2 = parseInt(prompt("Ingrese el segundo número "));
