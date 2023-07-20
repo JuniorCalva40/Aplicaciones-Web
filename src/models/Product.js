@@ -37,7 +37,7 @@ class CompositeProduct extends Product {
       totalPrice += product.price;
     }
 
-    const discountedPrice = (totalPrice * this.discount) / 100;
+    const discountedPrice = totalPrice - (totalPrice * this.discount) / 100;
     return discountedPrice;
   }
 }
