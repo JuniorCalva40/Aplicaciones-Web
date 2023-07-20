@@ -14,9 +14,22 @@ class FixedPriceProduct extends Product {
 }
 
 class VariablePriceProduct extends Product {
-  constructor(name) {
+  constructor(name, unitPrice, type, value) {
     super(name);
-    this.price = null;
+    this.unitPrice = unitPrice;
+    this.type = type;
+    this.value = value;
+    this.totalPrice = this.calculateTotalPrice();
+  }
+
+  calculateTotalPrice() {
+    if (this.type === "cantidad") {
+      return this.unitPrice * this.value;
+    } else if (this.type === "longitud") {
+      return this.unitPrice * this.value;
+    } else {
+      throw new Error('El Tipo Debe ser "cantidad" o "longitud".');
+    }
   }
 }
 
@@ -26,7 +39,7 @@ class CompositeProduct extends Product {
     this.products = products;
     this.price = price;
     this.discount = discount;
-    this.totalPrice = this.calculateDiscountedPrice();
+    this.totalPriceVariable = this.calculateDiscountedPrice();
   }
 
   //Metodo calcular precio total

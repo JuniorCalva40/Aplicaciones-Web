@@ -16,8 +16,14 @@ function addFixedPriceProduct(req, res) {
 }
 
 function addVariablePriceProduct(req, res) {
-  const { name } = req.body;
-  const product = new VariablePriceProduct(name);
+  const { name, unitPrice, type, value, totalPriceVariable } = req.body;
+  const product = new VariablePriceProduct(
+    name,
+    unitPrice,
+    type,
+    value,
+    totalPriceVariable
+  );
   products.push(product);
   res
     .status(201)
