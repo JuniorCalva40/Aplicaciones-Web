@@ -21,10 +21,24 @@ class VariablePriceProduct extends Product {
 }
 
 class CompositeProduct extends Product {
-  constructor(name, products, discount) {
+  constructor(name, price, products, discount) {
     super(name);
     this.products = products;
+    this.price = price;
     this.discount = discount;
+    this.totalPrice = this.calculateDiscountedPrice();
+  }
+
+  //Metodo calcular precio total
+  calculateDiscountedPrice() {
+    let totalPrice = 0;
+
+    for (const product of this.products) {
+      totalPrice += product.price;
+    }
+
+    const discountedPrice = (totalPrice * this.discount) / 100;
+    return discountedPrice;
   }
 }
 

@@ -1,13 +1,13 @@
 const express = require("express");
 const app = express();
-const productRoutes = require("./routes/Product.route.js");
+const PORT = process.env.PORT || 3000;
+const productRoutes = require("./src/routes/productRoute");
 
 app.use(express.json());
 
 // Add product routes
-app.use("/api", productRoutes);
+app.use("/api/v1/", productRoutes);
 
-const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+  console.log(`Server listening on port http://localhost:${PORT}`);
 });
